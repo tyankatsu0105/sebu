@@ -1,7 +1,7 @@
 {
   "name": "sebu",
   "version": "1.0.0",
-  "description": "SEarch file and BUmp up version",
+  "description": "SEarch files and BUmp up version",
   "main": "index.js",
   "scripts": {
     "release": "shipjs prepare"
@@ -10,7 +10,10 @@
     "type": "git",
     "url": "git+https://github.com/tyankatsu0105/sebu.git"
   },
-  "keywords": ["bump", "search"],
+  "keywords": [
+    "bump",
+    "search"
+  ],
   "author": "tyankatsu <frips.ryilsufupe+dev@gmail.com> (https://tyankatsu.netlify.com/)",
   "license": "MIT",
   "bugs": {
