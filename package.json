@@ -1,6 +1,6 @@
 {
   "name": "sebu",
-  "version": "1.0.0",
+  "version": "0.0.0",
   "description": "SEarch files and BUmp up version",
   "main": "index.js",
   "scripts": {
