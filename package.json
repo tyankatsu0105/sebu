@@ -1,0 +1,21 @@
+{
+  "name": "sebu",
+  "version": "1.0.0",
+  "description": "SEarch file and BUmp up version",
+  "main": "index.js",
+  "scripts": {},
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/tyankatsu0105/sebu.git"
+  },
+  "keywords": [
+    "bump",
+    "search"
+  ],
+  "author": "tyankatsu <frips.ryilsufupe+dev@gmail.com> (https://tyankatsu.netlify.com/)",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/tyankatsu0105/sebu/issues"
+  },
+  "homepage": "https://github.com/tyankatsu0105/sebu#readme"
+}
