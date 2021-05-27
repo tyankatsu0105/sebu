@@ -1,1 +1,1 @@
-module.exports = { buildCommand: () => null };
+module.exports = {};
