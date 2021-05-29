@@ -21,5 +21,5 @@
 ```bash
 source scripts/setup-sandbox.sh
 
-npx sebu -- -help
+npx sebu --help
 ```
