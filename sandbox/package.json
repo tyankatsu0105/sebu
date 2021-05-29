@@ -1,7 +1,7 @@
 {
   "name": "sandbox",
   "version": "0.0.0",
-  "scripts": {
-    "sebu": "node ../dist"
+  "devDependencies": {
+    "sebu": "../"
   }
 }

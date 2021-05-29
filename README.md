@@ -15,3 +15,11 @@
   <br>
   <br>
 </p>
+
+## Development
+
+```bash
+source scripts/setup-sandbox.sh
+
+npx sebu -- -help
+```
