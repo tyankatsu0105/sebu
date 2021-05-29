@@ -1,4 +1,5 @@
 import Commander from "commander";
+
 import { OptionValues } from "../types/commander";
 
 const program = new Commander.Command();
