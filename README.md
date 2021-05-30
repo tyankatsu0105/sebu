@@ -1,3 +1,5 @@
+<p align="center"><img width="143px" height="130px" src="https://raw.githubusercontent.com/tyankatsu0105/sebu/main/assets/logo.png" alt="sebu"></p>
+
 <h2 align="center">sebu</h2>
 <p align="center">
   SEarch files and BUmp up version
@@ -7,7 +9,7 @@
     <img src="https://badge.fury.io/js/sebu.svg">
   </a>
   <a title="deploy" href="https://github.com/algolia/shipjs" rel="nofollow">
-    <img src="https://img.shields.io/badge/deploy-🛳%20Ship.js-blue?style=flat">
+    <img src="https://img.shields.io/badge/deploy-🛳Ship.js-blue?style=flat">
   </a>
   <a title="MIT License" href="[LICENSE](https://opensource.org/licenses/MIT)" rel="nofollow">
     <img src="https://img.shields.io/badge/License-MIT-green.svg">
@@ -15,6 +17,7 @@
   <br>
   <br>
 </p>
+
 
 ## Usage
 
