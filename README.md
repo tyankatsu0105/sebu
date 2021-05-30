@@ -1,4 +1,4 @@
-<h2 align="center">sebu (WIP)</h2>
+<h2 align="center">sebu</h2>
 <p align="center">
   SEarch files and BUmp up version
 </p>
@@ -16,6 +16,32 @@
   <br>
 </p>
 
+## Usage
+
+```bash
+npm install sebu
+```
+
+### CLI
+
+```bash
+sebu --current=0.0.0 --next=2.0.0 --source=docs/README.md
+
+# Also available experimental release version like beta, rc
+sebu --current=1.0.0-beta.1 --next=1.0.0-beta.2 --source=docs/README.md
+```
+
+### API
+
+```ts
+import sebu from "sebu";
+
+// 👍
+sebu.XXXX
+```
+
+see [export API](https://github.com/tyankatsu0105/sebu/blob/main/src/lib/index.ts)
+
 ## Development
 
 ```bash
@@ -27,3 +53,6 @@ source scripts/setup-sandbox.sh
 
 npx sebu --help
 ```
+
+## LICENSE(MIT)
+see [LICENSE](https://github.com/tyankatsu0105/sebu/blob/main/LICENSE)
