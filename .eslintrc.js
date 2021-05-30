@@ -22,6 +22,7 @@ module.exports = {
         "sort-keys-fix/sort-keys-fix": "warn",
         "typescript-sort-keys/interface": "warn",
         "typescript-sort-keys/string-enum": "warn",
+        "@typescript-eslint/explicit-module-boundary-types": "off",
       },
     },
   ],

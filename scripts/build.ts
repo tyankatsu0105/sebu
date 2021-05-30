@@ -7,12 +7,12 @@ const root = path.resolve(__dirname, "../");
 const entryPoints = glob.sync(path.join(root, "src/**/*.ts"));
 
 const options: ESBuild.BuildOptions = {
+  bundle: true,
   entryPoints,
   minify: true,
-  bundle: true,
-  target: "es2015",
-  platform: "node",
   outdir: path.join(root, "dist"),
+  platform: "node",
+  target: "es2015",
   tsconfig: path.join(root, "tsconfig.json"),
 };
 

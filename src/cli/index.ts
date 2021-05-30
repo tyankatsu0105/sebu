@@ -1,5 +1,6 @@
 import Commander from "commander";
 
+import { run } from "../lib/run";
 import { OptionValues } from "../types/commander";
 
 const program = new Commander.Command();
@@ -16,6 +17,6 @@ Example:
 $ sebu --current=1.0.0 --next=1.0.1 --source=docs/README.md`
   );
 
-const options = program.opts() as OptionValues;
+const optionValues = program.opts() as OptionValues;
 
-console.log(options);
+run(optionValues);
