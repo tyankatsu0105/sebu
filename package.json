@@ -1,6 +1,6 @@
 {
   "name": "sebu",
-  "version": "0.0.4",
+  "version": "0.1.0",
   "description": "SEarch files and BUmp up version",
   "main": "dist/lib/index.js",
   "types": "dist/lib/index.d.ts",
