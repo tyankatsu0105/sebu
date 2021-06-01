@@ -14,6 +14,8 @@ export interface OptionValues extends Commander.OptionValues {
    */
   current: string;
 
+  dryRun: boolean;
+
   /**
    * Next version of package
    * @example

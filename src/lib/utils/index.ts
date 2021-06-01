@@ -1,1 +1,3 @@
-export { getUpdatedFileInfo } from "./file";
+export * from "./color";
+export * from "./file";
+export * from "./logger";
