@@ -9,7 +9,8 @@ program
   .requiredOption("--source <path>", "source path")
   .requiredOption("--current <version>", "current version of package. ex)1.0.0")
   .requiredOption("--next <version>", "next version of package. ex)1.0.1")
-  .option("--write", "overrite source")
+  .option("-w, --write", "overrite source")
+  .option("-o, --output-json <path>", "create file that written info as json")
   .addHelpText(
     "after",
     `

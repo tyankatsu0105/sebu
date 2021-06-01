@@ -28,6 +28,15 @@ export interface OptionValues extends Commander.OptionValues {
   next: string;
 
   /**
+   * Path of file that written info as json
+   * @example
+   * {
+   *  outputJson: "sebu.json"
+   * }
+   */
+  outputJson: string;
+
+  /**
    * Source file's path that target
    * @example
    * {

@@ -3,10 +3,16 @@ import * as NodePath from "path";
 
 import { OptionValues } from "../../types/commander";
 
+export const getRelativePath = (path: string) => {
+  const relativePath = NodePath.resolve(process.cwd(), path);
+
+  return { relativePath };
+};
+
 export const getCurrentFileInfo = (params: {
   source: OptionValues["source"];
 }) => {
-  const path = NodePath.resolve(process.cwd(), params.source);
+  const path = getRelativePath(params.source).relativePath;
   const content = fs
     .readFileSync(NodePath.resolve(process.cwd(), params.source))
     .toString();
@@ -35,6 +41,14 @@ export const getUpdatedContent = (params: {
   return { updatedContent };
 };
 
+type UpdatedFileInfo = {
+  content: {
+    current: string;
+    next: string;
+  };
+  path: string;
+};
+
 export const getUpdatedFileInfo = (optionValues: OptionValues) => {
   const { content: current, path } = getCurrentFileInfo({
     source: optionValues.source,
@@ -45,19 +59,30 @@ export const getUpdatedFileInfo = (optionValues: OptionValues) => {
     nextVersion: optionValues.next,
   });
 
-  const updatedFileInfo = {
-    /**
-     * File content
-     */
-    content: {
-      current,
-      next,
+  const updatedFileInfo: { parsed: UpdatedFileInfo; pure: UpdatedFileInfo } = {
+    parsed: {
+      content: {
+        current: JSON.parse(current),
+        next: JSON.parse(next),
+      },
+      path,
     },
-    /**
-     * Absolute path
-     * @example '/Users/tyankatsu/project/sebu/sandbox/docs/package.json'
-     */
-    path,
+
+    pure: {
+      /**
+       * File content
+       */
+      content: {
+        current,
+        next,
+      },
+
+      /**
+       * Absolute path
+       * @example '/Users/tyankatsu/project/sebu/sandbox/docs/package.json'
+       */
+      path,
+    },
   };
 
   return { updatedFileInfo };
