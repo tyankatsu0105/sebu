@@ -1,4 +1,5 @@
 import fs from "fs";
+import glob from "glob";
 import * as NodePath from "path";
 
 import { OptionValues } from "../../types/commander";
@@ -41,37 +42,20 @@ export const getUpdatedContent = (params: {
   return { updatedContent };
 };
 
-type UpdatedFileInfo = {
-  content: {
-    current: string;
-    next: string;
-  };
-  path: string;
-};
-
 export const getUpdatedFileInfo = (optionValues: OptionValues) => {
-  const { content: current, path } = getCurrentFileInfo({
-    source: optionValues.source,
-  });
-  const { updatedContent: next } = getUpdatedContent({
-    currentContent: current,
-    currentVersion: optionValues.current,
-    nextVersion: optionValues.next,
-  });
+  const files = glob.sync(optionValues.source);
 
-  const updatedFileInfo: { parsed: UpdatedFileInfo; pure: UpdatedFileInfo } = {
-    parsed: {
-      content: {
-        current: JSON.parse(current),
-        next: JSON.parse(next),
-      },
-      path,
-    },
+  const updatedFileInfo = files.map((file) => {
+    const { content: current, path } = getCurrentFileInfo({
+      source: file,
+    });
+    const { updatedContent: next } = getUpdatedContent({
+      currentContent: current,
+      currentVersion: optionValues.current,
+      nextVersion: optionValues.next,
+    });
 
-    pure: {
-      /**
-       * File content
-       */
+    return {
       content: {
         current,
         next,
@@ -82,8 +66,7 @@ export const getUpdatedFileInfo = (optionValues: OptionValues) => {
        * @example '/Users/tyankatsu/project/sebu/sandbox/docs/package.json'
        */
       path,
-    },
-  };
-
+    };
+  });
   return { updatedFileInfo };
 };

@@ -2,7 +2,7 @@ import Commander from "commander";
 
 export interface OptionValues extends Commander.OptionValues {
   /**
-   * Current version of package
+   * Current version of package.
    * @example
    * {
    *  current: "1.0.0"
@@ -15,7 +15,7 @@ export interface OptionValues extends Commander.OptionValues {
   current: string;
 
   /**
-   * Next version of package
+   * Next version of package.
    * @example
    * {
    *  next: "2.0.0"
@@ -28,7 +28,7 @@ export interface OptionValues extends Commander.OptionValues {
   next: string;
 
   /**
-   * Path of file that written info as json
+   * Path of file that written info as json.
    * @example
    * {
    *  outputJson: "sebu.json"
@@ -37,16 +37,21 @@ export interface OptionValues extends Commander.OptionValues {
   outputJson: string;
 
   /**
-   * Source file's path that target
+   * Source file's path that target.
+   * Possible glob pattern.
    * @example
    * {
    *  source: "docs/README.md"
+   * }
+   *
+   * {
+   *  source: "docs/*.md"
    * }
    */
   source: string;
 
   /**
-   * A flag whether overwrite
+   * A flag whether overwrite.
    */
   write: boolean;
 }

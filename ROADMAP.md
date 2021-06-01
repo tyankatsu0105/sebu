@@ -5,11 +5,11 @@
   - [x] current version
   - [x] next version
   - [x] source
-  - [ ] source as grob
+  - [x] source as grob
   - optional next 
     - [ ] major
     - [ ] minor
     - [ ] patch
   - [x] write
-  - [ ] output json
+  - [x] output json
 - [x] API
