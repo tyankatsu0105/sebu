@@ -6,10 +6,10 @@
   - [x] next version
   - [x] source
   - [ ] source as grob
-  - [ ] dry run
   - optional next 
     - [ ] major
     - [ ] minor
     - [ ] patch
-  - [ ] fix
+  - [x] write
+  - [ ] output json
 - [x] API

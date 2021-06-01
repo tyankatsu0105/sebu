@@ -14,8 +14,6 @@ export interface OptionValues extends Commander.OptionValues {
    */
   current: string;
 
-  dryRun: boolean;
-
   /**
    * Next version of package
    * @example
@@ -37,4 +35,9 @@ export interface OptionValues extends Commander.OptionValues {
    * }
    */
   source: string;
+
+  /**
+   * A flag whether overwrite
+   */
+  write: boolean;
 }

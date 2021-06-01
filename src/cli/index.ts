@@ -9,7 +9,7 @@ program
   .requiredOption("--source <path>", "source path")
   .requiredOption("--current <version>", "current version of package. ex)1.0.0")
   .requiredOption("--next <version>", "next version of package. ex)1.0.1")
-  .option("--dry-run", "dry run")
+  .option("--write", "overrite source")
   .addHelpText(
     "after",
     `
