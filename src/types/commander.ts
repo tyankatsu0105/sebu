@@ -15,6 +15,16 @@ export interface OptionValues extends Commander.OptionValues {
   current: string;
 
   /**
+   * A flag whether bump up the version to major.
+   */
+  major?: boolean;
+
+  /**
+   * A flag whether bump up the version to minor.
+   */
+  minor?: boolean;
+
+  /**
    * Next version of package.
    * @example
    * {
@@ -25,7 +35,7 @@ export interface OptionValues extends Commander.OptionValues {
    *  next: "2.0.0-alpha.1"
    * }
    */
-  next: string;
+  next?: string;
 
   /**
    * Path of file that written info as json.
@@ -36,6 +46,10 @@ export interface OptionValues extends Commander.OptionValues {
    */
   outputJson: string;
 
+  /**
+   * A flag whether bump up the version to patch.
+   */
+  patch?: boolean;
   /**
    * Source file's path that target.
    * Possible glob pattern.
@@ -49,9 +63,8 @@ export interface OptionValues extends Commander.OptionValues {
    * }
    */
   source: string;
-
   /**
    * A flag whether overwrite.
    */
-  write: boolean;
+  write?: boolean;
 }

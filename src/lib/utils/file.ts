@@ -2,7 +2,7 @@ import fs from "fs";
 import glob from "glob";
 import * as NodePath from "path";
 
-import { OptionValues } from "../../types/commander";
+import { InternalOptionValues } from "../../types/internal";
 
 export const getRelativePath = (path: string) => {
   const relativePath = NodePath.resolve(process.cwd(), path);
@@ -11,7 +11,7 @@ export const getRelativePath = (path: string) => {
 };
 
 export const getCurrentFileInfo = (params: {
-  source: OptionValues["source"];
+  source: InternalOptionValues["source"];
 }) => {
   const path = getRelativePath(params.source).relativePath;
   const content = fs
@@ -26,8 +26,8 @@ export const getCurrentFileInfo = (params: {
 
 export const getUpdatedContent = (params: {
   currentContent: string;
-  currentVersion: OptionValues["current"];
-  nextVersion: OptionValues["next"];
+  currentVersion: InternalOptionValues["current"];
+  nextVersion: InternalOptionValues["next"];
 }) => {
   const regexp = new RegExp(
     `(?<!(\\d|\\.))${params.currentVersion}(?!(\\d|\\.))`,
@@ -42,8 +42,10 @@ export const getUpdatedContent = (params: {
   return { updatedContent };
 };
 
-export const getUpdatedFileInfo = (optionValues: OptionValues) => {
-  const files = glob.sync(optionValues.source);
+export const getUpdatedFileInfo = (
+  internalOptionValues: InternalOptionValues
+) => {
+  const files = glob.sync(internalOptionValues.source);
 
   const updatedFileInfo = files.map((file) => {
     const { content: current, path } = getCurrentFileInfo({
@@ -51,8 +53,8 @@ export const getUpdatedFileInfo = (optionValues: OptionValues) => {
     });
     const { updatedContent: next } = getUpdatedContent({
       currentContent: current,
-      currentVersion: optionValues.current,
-      nextVersion: optionValues.next,
+      currentVersion: internalOptionValues.current,
+      nextVersion: internalOptionValues.next,
     });
 
     return {

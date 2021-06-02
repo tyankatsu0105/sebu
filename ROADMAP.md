@@ -7,9 +7,9 @@
   - [x] source
   - [x] source as grob
   - optional next 
-    - [ ] major
-    - [ ] minor
-    - [ ] patch
+    - [x] major
+    - [x] minor
+    - [x] patch
   - [x] write
   - [x] output json
 - [x] API
