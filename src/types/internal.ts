@@ -1,5 +1,5 @@
 import { OptionValues } from "./commander";
 
-export type InternalOptionValues = Omit<OptionValues, "next"> & {
+export interface InternalOptionValues extends OptionValues {
   next: string;
-};
+}

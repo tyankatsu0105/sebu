@@ -114,7 +114,7 @@ const createLogBox = (params: {
   const space = " ";
 
   // margin
-  for (let index = 0; index < margin; index++) {
+  for (let index = 1; index < margin; index++) {
     console.log();
   }
 
@@ -164,7 +164,7 @@ const createLogBox = (params: {
   console.log(reset);
 
   // margin
-  for (let index = 0; index < margin; index++) {
+  for (let index = 1; index < margin; index++) {
     console.log();
   }
 };

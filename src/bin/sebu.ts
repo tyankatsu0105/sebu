@@ -2,5 +2,4 @@
 
 import "../cli/index";
 
-import { info } from "../lib/utils/logger";
-info(`sebu is completed`);
+console.info("✨sebu is completed");

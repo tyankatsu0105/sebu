@@ -39,7 +39,9 @@ export const getUpdatedContent = (params: {
     params.nextVersion
   );
 
-  return { updatedContent };
+  const isUpdated = params.currentContent !== updatedContent;
+
+  return { isUpdated, updatedContent };
 };
 
 export const getUpdatedFileInfo = (
@@ -51,7 +53,7 @@ export const getUpdatedFileInfo = (
     const { content: current, path } = getCurrentFileInfo({
       source: file,
     });
-    const { updatedContent: next } = getUpdatedContent({
+    const { isUpdated, updatedContent: next } = getUpdatedContent({
       currentContent: current,
       currentVersion: internalOptionValues.current,
       nextVersion: internalOptionValues.next,
@@ -63,6 +65,7 @@ export const getUpdatedFileInfo = (
         next,
       },
 
+      isUpdated,
       /**
        * Absolute path
        * @example '/Users/tyankatsu/project/sebu/sandbox/docs/package.json'

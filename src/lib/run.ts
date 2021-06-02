@@ -2,7 +2,7 @@ import fs from "fs";
 
 import { OptionValues } from "../types/commander";
 import { InternalOptionValues } from "../types/internal";
-import { getRelativePath, getUpdatedFileInfo } from "./utils";
+import { getRelativePath, getUpdatedFileInfo, info } from "./utils";
 
 const getNextVersion = (optionValues: OptionValues) => {
   let nextVersion = "";
@@ -64,6 +64,11 @@ export const run = (optionValues: OptionValues) => {
       fs.writeFileSync(content.path, content.content.next);
     });
 
+    finish({
+      current: internalOptionValues.current,
+      next: internalOptionValues.next,
+      updatedFileInfo,
+    });
     return;
   }
 
@@ -76,6 +81,40 @@ export const run = (optionValues: OptionValues) => {
       }
     );
 
+    finish({
+      current: internalOptionValues.current,
+      next: internalOptionValues.next,
+      updatedFileInfo,
+    });
     return;
   }
+
+  finish({
+    current: internalOptionValues.current,
+    next: internalOptionValues.next,
+    updatedFileInfo,
+  });
+};
+
+const finish = (params: {
+  current: InternalOptionValues["current"];
+  next: InternalOptionValues["next"];
+  updatedFileInfo: ReturnType<typeof getUpdatedFileInfo>["updatedFileInfo"];
+}) => {
+  const filePath = params.updatedFileInfo
+    .map((value) => {
+      const icon = value.isUpdated ? "\uD83D\uDD3C" : "  ";
+      return `${icon} ${value.path}`.trimEnd();
+    })
+    .join("\n")
+    .trim();
+
+  const updatedFileCount = params.updatedFileInfo.filter(
+    ({ isUpdated }) => isUpdated
+  ).length;
+  info(`${updatedFileCount} of ${params.updatedFileInfo.length} files updated.
+${params.current} => ${params.next}
+
+${filePath}
+  `);
 };
