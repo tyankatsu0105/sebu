@@ -18,8 +18,10 @@ program
     "after",
     `
 Example:
-$ sebu --current=1.0.0 --next=1.0.1 --source=docs/README.md
+$ sebu --current=1.0.0 --next=1.0.1 --source=docs/README.md -w
 $ sebu --current=1.0.0 --next=1.0.1 --source="docs/**/*.md"
+$ sebu --current=1.0.0 --major --source=package.json
+$ sebu --current=1.0.0 --next=1.0.1 --source="docs/**/*.md" -o sebu.json
 `
   )
   .parse(process.argv);
