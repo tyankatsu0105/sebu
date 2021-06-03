@@ -48,6 +48,34 @@ const getNextVersion = (optionValues: OptionValues) => {
   throw new Error("Use next or major or minor or patch option.");
 };
 
+const finish = (params: {
+  current: InternalOptionValues["current"];
+  next: InternalOptionValues["next"];
+  updatedFileInfo: ReturnType<typeof getUpdatedFileInfo>["updatedFileInfo"];
+}) => {
+  let filePath = "";
+
+  if (params.updatedFileInfo.some(({ isUpdated }) => isUpdated)) {
+    filePath = params.updatedFileInfo
+      .map((value) => {
+        const icon = value.isUpdated ? "\uD83D\uDD3C" : "  ";
+        return `${icon} ${value.path}`;
+      })
+      .join("\n");
+  }
+
+  const updatedFileCount = params.updatedFileInfo.filter(
+    ({ isUpdated }) => isUpdated
+  ).length;
+
+  info(
+    `${updatedFileCount} of ${params.updatedFileInfo.length} files updated.
+${params.current} => ${params.next}
+
+${filePath}`.trim()
+  );
+};
+
 export const run = (optionValues: OptionValues) => {
   const next = getNextVersion(optionValues)?.nextVersion;
   if (!next)
@@ -94,27 +122,4 @@ export const run = (optionValues: OptionValues) => {
     next: internalOptionValues.next,
     updatedFileInfo,
   });
-};
-
-const finish = (params: {
-  current: InternalOptionValues["current"];
-  next: InternalOptionValues["next"];
-  updatedFileInfo: ReturnType<typeof getUpdatedFileInfo>["updatedFileInfo"];
-}) => {
-  const filePath = params.updatedFileInfo
-    .map((value) => {
-      const icon = value.isUpdated ? "\uD83D\uDD3C" : "  ";
-      return `${icon} ${value.path}`.trimEnd();
-    })
-    .join("\n")
-    .trim();
-
-  const updatedFileCount = params.updatedFileInfo.filter(
-    ({ isUpdated }) => isUpdated
-  ).length;
-  info(`${updatedFileCount} of ${params.updatedFileInfo.length} files updated.
-${params.current} => ${params.next}
-
-${filePath}
-  `);
 };

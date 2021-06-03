@@ -2,4 +2,4 @@
 
 import "../cli/index";
 
-console.info("✨sebu is completed");
+console.info("🐋 sebu is completed");
