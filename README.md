@@ -34,6 +34,28 @@ sebu --current=0.0.0 --next=2.0.0 --source=docs/README.md
 sebu --current=1.0.0-beta.1 --next=1.0.0-beta.2 --source=docs/README.md
 ```
 
+```bash
+Usage: sebu [options]
+
+Options:
+  --source <path>           source path. Also be able to use glob.
+  --current <version>       current version of package. ex)1.0.0
+  --next <version>          next version of package. ex)1.0.1
+  --major                   bump up the version to major
+  --minor                   bump up the version to minor
+  --patch                   bump up the version to patch
+  -w, --write               overwrite source
+  -o, --output-json <path>  create file that written info as json
+  -h, --help                display help for command
+
+Example:
+$ sebu --current=1.0.0 --next=1.0.1 --source=docs/README.md -w
+$ sebu --current=1.0.0 --next=1.0.1 --source="docs/**/*.md"
+$ sebu --current=1.0.0 --next=1.0.1 --source="src/**/*.*"
+$ sebu --current=1.0.0 --major --source=package.json
+$ sebu --current=1.0.0 --next=1.0.1 --source="docs/**/*.md" -o sebu.json
+```
+
 ### API
 
 ```ts
@@ -44,18 +66,6 @@ sebu.XXXX
 ```
 
 see [export API](https://github.com/tyankatsu0105/sebu/blob/main/src/lib/index.ts)
-
-## Development
-
-```bash
-npm run dev -- --current=1.1.1@alfa --next=2.0.0 --source=README.md
-```
-
-```bash
-source scripts/setup-sandbox.sh
-
-npx sebu --help
-```
 
 ## LICENSE(MIT)
 see [LICENSE](https://github.com/tyankatsu0105/sebu/blob/main/LICENSE)

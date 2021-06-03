@@ -3,3 +3,4 @@
 import "../cli/index";
 
 console.info("🐋 sebu is completed");
+console.log();
